@@ -279,7 +279,6 @@ body {
 }
 
 .sidebar-list {
-    max-height: var(--var-9);
     overflow-y: auto;
 }
 
