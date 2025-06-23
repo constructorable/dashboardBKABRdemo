@@ -1,5 +1,3 @@
-// Copyright Oliver Acker, 2025, acker_oliver@yahoo.de
-
 function createProgressChart(canvasId, progress, size = 120) {
     const canvas = document.getElementById(canvasId);
     if (!canvas) {
@@ -9,14 +7,16 @@ function createProgressChart(canvasId, progress, size = 120) {
 
     const ctx = canvas.getContext('2d');
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3); 
 
     canvas.width = size * dpr;
     canvas.height = size * dpr;
 
     canvas.style.width = size + 'px';
     canvas.style.height = size + 'px';
+    canvas.style.display = 'block'; 
 
+    ctx.save();
     ctx.scale(dpr, dpr);
 
     drawProgressRing(ctx, progress, size);
@@ -25,10 +25,11 @@ function createProgressChart(canvasId, progress, size = 120) {
         canvas,
         update: (newProgress) => {
 
-            ctx.save();
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.restore();
+            ctx.save();
+
+            ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+
             ctx.scale(dpr, dpr);
             drawProgressRing(ctx, newProgress, size);
         }
@@ -38,8 +39,8 @@ function createProgressChart(canvasId, progress, size = 120) {
 function drawProgressRing(ctx, progress, size) {
     const centerX = size / 2;
     const centerY = size / 2;
-    const radius = size / 2 - 10;
-    const lineWidth = 8;
+    const radius = Math.max(size / 2 - 15, 10); 
+    const lineWidth = Math.max(size / 15, 4); 
 
     ctx.clearRect(0, 0, size, size);
 
@@ -62,8 +63,9 @@ function drawProgressRing(ctx, progress, size) {
         ctx.stroke();
     }
 
+    const fontSize = Math.max(size / 8, 10); 
     ctx.fillStyle = getProgressColor(progress);
-    ctx.font = `bold ${size / 6}px 'Segoe UI', sans-serif`;
+    ctx.font = `bold ${fontSize}px 'Segoe UI', sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(`${progress}%`, centerX, centerY);
@@ -90,7 +92,7 @@ function getProgressColor(progress) {
 }
 
 function createSmallProgressChart(canvasId, progress) {
-    return createProgressChart(canvasId, progress, 120); 
+    return createProgressChart(canvasId, progress, 120);
 }
 
 function createLargeProgressChart(canvasId, progress) {
@@ -128,14 +130,21 @@ function easeOutCubic(t) {
 
 function createStatusIndicator(progress) {
     const canvas = document.createElement('canvas');
-    canvas.width = 12;
-    canvas.height = 12;
+    const size = 12;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2); 
+
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
     canvas.className = 'status-indicator';
 
     const ctx = canvas.getContext('2d');
-    const centerX = 6;
-    const centerY = 6;
-    const radius = 5;
+    ctx.scale(dpr, dpr);
+
+    const centerX = size / 2;
+    const centerY = size / 2;
+    const radius = size / 2 - 1;
 
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -154,7 +163,9 @@ function updatePropertyCharts(propertyId, progress) {
     const cardChart = document.querySelector(`[data-property-id="${propertyId}"] .chart-container canvas`);
     if (cardChart) {
 
-        const dpr = window.devicePixelRatio || 1;
+        cardChart.style.display = 'block';
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 3);
         const size = 120;
 
         cardChart.width = size * dpr;
@@ -163,14 +174,17 @@ function updatePropertyCharts(propertyId, progress) {
         cardChart.style.height = size + 'px';
 
         const ctx = cardChart.getContext('2d');
+        ctx.save();
         ctx.scale(dpr, dpr);
         drawProgressRing(ctx, progress, size);
+        ctx.restore();
     }
 
     const modalChart = document.getElementById('modalChart');
     if (modalChart && modalChart.dataset.propertyId === propertyId) {
+        modalChart.style.display = 'block';
 
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = Math.min(window.devicePixelRatio || 1, 3);
         const size = 150;
 
         modalChart.width = size * dpr;
@@ -179,8 +193,10 @@ function updatePropertyCharts(propertyId, progress) {
         modalChart.style.height = size + 'px';
 
         const ctx = modalChart.getContext('2d');
+        ctx.save();
         ctx.scale(dpr, dpr);
         drawProgressRing(ctx, progress, size);
+        ctx.restore();
 
         const progressText = document.getElementById('modalProgressPercent');
         if (progressText) {
@@ -202,13 +218,21 @@ function createOverviewChart(canvasId, statusCounts) {
         return null;
     }
 
-    const ctx = canvas.getContext('2d');
-    canvas.width = 200;
-    canvas.height = 200;
+    const size = 200;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const centerX = 100;
-    const centerY = 100;
-    const radius = 120;
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
+    canvas.style.display = 'block';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const centerX = size / 2;
+    const centerY = size / 2;
+    const radius = size / 2 - 40;
 
     const total = statusCounts.notStarted + statusCounts.inProgress + statusCounts.completed;
 
@@ -310,11 +334,18 @@ function createProgressBar(containerId, progress, showText = true) {
 
 function createMiniChart(progress, size = 24) {
     const canvas = document.createElement('canvas');
-    canvas.width = size;
-    canvas.height = size;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
+    canvas.style.display = 'block';
     canvas.className = 'mini-chart';
 
     const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
     const centerX = size / 2;
     const centerY = size / 2;
     const radius = size / 2 - 2;
@@ -404,18 +435,39 @@ function optimizeChartRendering() {
     const canvases = document.querySelectorAll('canvas');
 
     canvases.forEach(canvas => {
+        if (!canvas.style.width || !canvas.style.height) {
+            return; 
+        }
+
         const ctx = canvas.getContext('2d');
-        const devicePixelRatio = window.devicePixelRatio || 1;
+        const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 3); 
 
         if (devicePixelRatio > 1) {
             const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width * devicePixelRatio;
-            canvas.height = rect.height * devicePixelRatio;
 
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
+            const expectedWidth = rect.width * devicePixelRatio;
+            const expectedHeight = rect.height * devicePixelRatio;
 
-            ctx.scale(devicePixelRatio, devicePixelRatio);
+            if (canvas.width !== expectedWidth || canvas.height !== expectedHeight) {
+                canvas.width = expectedWidth;
+                canvas.height = expectedHeight;
+
+                canvas.style.width = rect.width + 'px';
+                canvas.style.height = rect.height + 'px';
+                canvas.style.display = 'block';
+
+                ctx.scale(devicePixelRatio, devicePixelRatio);
+            }
+        }
+    });
+}
+
+function ensureCanvasVisibility() {
+    const canvases = document.querySelectorAll('canvas');
+    canvases.forEach(canvas => {
+        if (canvas.offsetParent === null) { 
+            canvas.style.display = 'block';
+            canvas.style.visibility = 'visible';
         }
     });
 }
@@ -435,6 +487,7 @@ if (typeof module !== 'undefined' && module.exports) {
         animateProgress,
         getProgressColor,
         cleanupChart,
-        optimizeChartRendering
+        optimizeChartRendering,
+        ensureCanvasVisibility
     };
 }
