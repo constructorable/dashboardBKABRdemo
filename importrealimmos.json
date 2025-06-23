@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "exportDate": "2025-06-19T07:58:31.007Z",
+    "exportVersion": "1.0",
+    "totalProperties": 71,
+    "realProperties": 71,
+    "demoProperties": 0,
+    "exportedBy": "Immobilienverwaltung Dashboard",
+    "includedDemoData": false,
+    "filteredExport": false
+  },
+  "properties": [
+    {
+      "id": "Ammon-2",
+      "name": "Ammonstr. 22",
+      "portfolio": "Standard",
+      "type": "MV",
+      "hasHeating": false,
+      "accountingYear": 2024,
+      "accountingPeriod": "01.02.2024 - 31.01.2025",
+      "isDemo": false,
+      "notes": [
+        {
+          "id": "note_2",
+          "timestamp": "2025-06-02T22:00:00.000Z",
+          "text": "Mieter hat Elektroheizung - keine zentrale Heizkostenabrechnung erforderlich.",
+          "author": "Buchhalter Müller"
+        }
+      ],
+      "specialFeatures": [
+        {
+          "type": "Elektroheizung",
+          "description": "Dezentrale Nachtspeicherheizung"
+        }
+      ],
+      "checklist": {
+        "Verbrauchsrechnungen vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Dienstleistungsrechnung vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Wartungsrechnung vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Buchungen durchgeführt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung erstellt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung dem Eigentümer zur Freigabe geschickt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Freigabe vom Eigentümer erhalten": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung buchen / sollstellen": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung verschickt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        }
+      },
+      "createdAt": "2024-02-01T23:00:00.000Z",
+      "updatedAt": "2025-06-18T19:55:02.055Z"
+    },
+    {
+      "id": "sigmund-57",
+      "name": "Sigmundstr. 57",
+      "portfolio": "Portfolio 2",
+      "type": "MV",
+      "hasHeating": true,
+      "accountingYear": 2024,
+      "accountingPeriod": "01.06.2024 - 31.05.2025",
+      "isDemo": false,
+      "notes": [
+        {
+          "id": "note_57",
+          "timestamp": "2025-06-12T22:00:00.000Z",
+          "text": "Alle Unterlagen vollständig.",
+          "author": "Buchhalter Müller"
+        }
+      ],
+      "specialFeatures": [
+        {
+          "type": "Gasheizung",
+          "description": "Zentrale Gasheizung, Baujahr 2019"
+        }
+      ],
+      "checklist": {
+        "Verbrauchsrechnungen vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Dienstleistungsrechnung vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Wartungsrechnung vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Belege für Heizkostenabrechnungen vorhanden": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Heizkostenaufstellung eingereicht": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Heizkostenabrechnung zurückerhalten": {
+          "completed": true,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Buchungen durchgeführt": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung dem Eigentümer zur Freigabe geschickt": {
+          "completed": true,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Freigabe vom Eigentümer erhalten": {
+          "completed": true,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Abrechnung verschickt": {
+          "completed": true,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        }
+      },
+      "createdAt": "2024-01-06T23:00:00.000Z",
+      "updatedAt": "2025-06-18T21:15:24.667Z"
+    },
+    {
+      "id": "immobilie_1750281394865_9v1zo",
+      "name": "Praterstr. 2",
+      "portfolio": "Standard",
+      "type": "MV",
+      "hasHeating": true,
+      "accountingYear": 2026,
+      "accountingPeriod": "01.06.2025 - 31.05.2026",
+      "isDemo": false,
+      "notes": [
+        {
+          "id": "note_1750281394866_0_inj3f",
+          "timestamp": "2025-06-18T21:16:34.866Z",
+          "text": "Alle Unterlagen vollständig.",
+          "author": "Buchhalter Müller (kopiert)"
+        }
+      ],
+      "specialFeatures": [
+        {
+          "type": "Gasheizung",
+          "description": "Zentrale Gasheizung, Baujahr 2019"
+        }
+      ],
+      "checklist": {
+        "Verbrauchsrechnungen vorhanden": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Dienstleistungsrechnung vorhanden": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Wartungsrechnung vorhanden": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Belege für Heizkostenabrechnungen vorhanden": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Heizkostenaufstellung eingereicht": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Heizkostenabrechnung zurückerhalten": {
+          "completed": false,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Buchungen durchgeführt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        },
+        "Abrechnung dem Eigentümer zur Freigabe geschickt": {
+          "completed": false,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Freigabe vom Eigentümer erhalten": {
+          "completed": false,
+          "hasSpecialOption": true,
+          "specialOptionChecked": false
+        },
+        "Abrechnung verschickt": {
+          "completed": false,
+          "hasSpecialOption": false,
+          "specialOptionChecked": false
+        }
+      },
+      "createdAt": "2025-06-18T21:16:34.865Z",
+      "updatedAt": "2025-06-18T21:16:34.866Z"
+    }
+    
+  ],
+  "settings": {
+    "theme": "light",
+    "autoSave": true,
+    "showNotifications": true,
+    "defaultAccountingYear": 2025,
+    "backupInterval": 7,
+    "exportHistory": [
+      {
+        "timestamp": "2025-06-19T07:46:38.018Z",
+        "filename": "555",
+        "propertiesCount": 82,
+        "fileSize": "154.53 KB"
+      },
+      {
+        "timestamp": "2025-06-18T18:53:35.326Z",
+        "filename": "444",
+        "propertiesCount": 6,
+        "fileSize": "11.49 KB"
+      },
+      {
+        "timestamp": "2025-06-18T18:51:21.279Z",
+        "filename": "333",
+        "propertiesCount": 6,
+        "fileSize": "11.34 KB"
+      },
+      {
+        "timestamp": "2025-06-18T18:27:52.451Z",
+        "filename": "234",
+        "propertiesCount": 70,
+        "fileSize": "125.52 KB"
+      },
+      {
+        "timestamp": "2025-06-18T18:24:37.876Z",
+        "filename": "123",
+        "propertiesCount": 70,
+        "fileSize": "124.62 KB"
+      }
+    ],
+    "timestamp": "2025-06-19T07:54:24.097Z"
+  }
+}
